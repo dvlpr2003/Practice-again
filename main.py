@@ -1,9 +1,21 @@
 class Car:
-    def __init__(self,name):
+    def __init__(self,name,action):
         self.name = name
-    def Details(self):
+        self.action = action
+   
+class Boat:
+    def __init__(self,name,action):
+        self.name = name
+        self.action = action
+class Plane:
+    def __init__(self,name,action):
+        self.name = name
+        self.action = action
 
-        print(*(f"This car is {i}" for i in self.name),sep="\n")
+x = Car("BMW","Drive")
+y = Boat("Benz","Float")
+z = Plane("Boeing","Fly")
 
-x = Car(["BMW","Benz"])
-x.Details()
+
+for i in (x,y,z):
+    print(i.name,i.action)

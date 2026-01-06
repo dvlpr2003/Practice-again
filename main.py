@@ -1,9 +1,3 @@
-class Car:
-    def __init__(self,name):
-        self.name = name
-    def Details(self):
+x = [1,2,3,4,5,6,7,8,9,10]
 
-        print(*(f"This car is {i}" for i in self.name),sep="\n")
-
-x = Car(["BMW","Benz"])
-x.Details()
+print(*(i for i in x),sep="\n")

@@ -1,12 +1,15 @@
-const num = 7
+const Animal = "Elephantf"
 
-
-if (num < 1) {
-    console.log("Fine you mastered the if condition in js");
-
-} else if (num == 1) {
-    console.log("good");
-
-} else {
-    console.log("js if else condition just fucked up you")
+switch (Animal) {
+    case "Elephant":
+        console.log("fuck Elephant");
+        break;
+    case "Lion":
+        console.log("fuck Lion");
+        break;
+    case "Tiger":
+        console.log("fuck Tiger");
+        break;
+    default:
+        console.log("Sorry we can't findout your fucking animal name. We're really sorry for that mother fucker");
 }

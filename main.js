@@ -1,16 +1,12 @@
-function ChangeText() {
+const num = 7
 
-    var Collection = document.querySelectorAll("h1");
 
-    if (Collection[0].textContent == "hello world") {
-        Collection.forEach((item) => {
-            item.textContent = "hello foes";
-        })
+if (num < 1) {
+    console.log("Fine you mastered the if condition in js");
 
-    } else {
-        Collection.forEach((item) => {
-            item.textContent = "hello world";
-        })
-    }
+} else if (num == 1) {
+    console.log("good");
 
+} else {
+    console.log("js if else condition just fucked up you")
 }

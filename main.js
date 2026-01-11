@@ -1,15 +1,11 @@
-const Animal = "Elephantf"
+const Animal_1 = "Elephantf"
+const Animal_2 = "Male"
+const Animal_3 = "Female"
 
-switch (Animal) {
-    case "Elephant":
-        console.log("fuck Elephant");
-        break;
-    case "Lion":
-        console.log("fuck Lion");
-        break;
-    case "Tiger":
-        console.log("fuck Tiger");
-        break;
-    default:
-        console.log("Sorry we can't findout your fucking animal name. We're really sorry for that mother fucker");
+// Maybe my code is too beginner friendly. But I like this way to write the code
+if (Animal_1 === "Elephant") {
+    console.log(`${Animal_1} is not too dangerous than fucking male and female`);
+} else if (Animal_2 === "Male" && Animal_3 === "Female") {
+    console.log("Stay away from them")
 }
+

@@ -2,24 +2,19 @@
 
 import { Card } from "@/Components/Card";
 import { useState } from "react";
-interface Developer {
-  name: string;
-  skills: string[];
-  isHired: boolean;
-}
+
 const Devs = () => {
-  const [developers, setDevelopers] = useState<Developer[]>([
+  const [developers, setDevelopers] = useState<object[]>([
     { name: "RAJA", skills: ["React", "TypeScript", "Node.js"], isHired: true },
-    { name: "Devisri", skills: ["HTML", "CSS", "XML"], isHired: false },
   ]);
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       {developers.map((dev, index) => (
         <Card
           key={index}
-          name={dev.name}
-          skills={dev.skills}
-          isHired={dev.isHired}
+          name={(dev as { name: string }).name}
+          skills={(dev as { skills: string[] }).skills}
+          isHired={(dev as { isHired: boolean }).isHired}
           onFire={() => {
             const updatedDevs = developers.filter((_, i) => i !== index);
             setDevelopers(updatedDevs);

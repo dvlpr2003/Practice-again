@@ -1,28 +1,18 @@
-"use client";
+interface Pokemon {
+  name: string;
+  url: string;
+}
 
-import { Card } from "@/Components/Card";
-import { useState } from "react";
+interface PokemonResponse {
+  results: Pokemon[];
+}
 
-const Devs = () => {
-  const [developers, setDevelopers] = useState<object[]>([
-    { name: "RAJA", skills: ["React", "TypeScript", "Node.js"], isHired: true },
-  ]);
-  return (
-    <div className="grid grid-cols-3 gap-4 p-4">
-      {developers.map((dev, index) => (
-        <Card
-          key={index}
-          name={(dev as { name: string }).name}
-          skills={(dev as { skills: string[] }).skills}
-          isHired={(dev as { isHired: boolean }).isHired}
-          onFire={() => {
-            const updatedDevs = developers.filter((_, i) => i !== index);
-            setDevelopers(updatedDevs);
-          }}
-        />
-      ))}
-    </div>
-  );
+const Devs = async () => {
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+  const data: PokemonResponse = await res.json();
+  console.log(data.results[0].name);
+
+  return <div className="grid grid-cols-3 gap-4 p-4">hello</div>;
 };
 
 export default Devs;

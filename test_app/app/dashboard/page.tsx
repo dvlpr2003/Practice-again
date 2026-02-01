@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 interface Pokemon {
   name: string;
   url: string;
@@ -16,7 +16,8 @@ const Devs = async () => {
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       {data.results.map((pokemon, i) => (
-        <div
+        <Link
+          href={`/pokemon/${i + 1}`}
           key={pokemon.name}
           className="border border-white bg-gray-50 h-11/12 text-black p-4"
         >
@@ -27,7 +28,7 @@ const Devs = async () => {
             width={100}
             height={100}
           />
-        </div>
+        </Link>
       ))}
     </div>
   );

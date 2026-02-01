@@ -1,3 +1,5 @@
+import { PokeButton } from "@/Components/Button";
+
 interface PokemonDetails {
   name: string;
   sprites: {
@@ -25,6 +27,7 @@ const Pokemon = async ({ params }: { params: Promise<Params> }) => {
         width={200}
         height={200}
       />
+      <PokeButton name={data.name} />
     </div>
   );
 };

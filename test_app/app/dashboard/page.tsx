@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Pokemon {
   name: string;
   url: string;
@@ -10,9 +12,25 @@ interface PokemonResponse {
 const Devs = async () => {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const data: PokemonResponse = await res.json();
-  console.log(data.results[0].name);
-
-  return <div className="grid grid-cols-3 gap-4 p-4">hello</div>;
+  console.log(data.results);
+  return (
+    <div className="grid grid-cols-3 gap-4 p-4">
+      {data.results.map((pokemon, i) => (
+        <div
+          key={pokemon.name}
+          className="border border-white bg-gray-50 h-11/12 text-black p-4"
+        >
+          <h1 className="text-2xl">{pokemon.name}</h1>
+          <Image
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`}
+            alt={pokemon.name}
+            width={100}
+            height={100}
+          />
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Devs;

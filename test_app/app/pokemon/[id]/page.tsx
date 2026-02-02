@@ -1,5 +1,5 @@
 import { PokeButton } from "@/Components/Button";
-
+import { notFound } from "next/navigation";
 interface PokemonDetails {
   name: string;
   sprites: {
@@ -15,6 +15,10 @@ interface Params {
 const Pokemon = async ({ params }: { params: Promise<Params> }) => {
   const { id } = await params;
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  if (!res.ok) {
+    notFound();
+  }
+
   const data: PokemonDetails = await res.json();
   console.log(data);
 
